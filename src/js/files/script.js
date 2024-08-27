@@ -93,8 +93,8 @@ function handleReviews() {
 const translations = {
    ru: {
       "header__logo": "На главную",
-      "hero__title": "Официальный сайт видеоуроков по астрологии.",
-      "hero__subtitle": "Астрологические видеокурсы для всех уровней подготовки.",
+      "hero__title": "Анна Карпеева",
+      "hero__subtitle": "— официальный сайт видеоуроков Spica Astrology",
       "advantages__discounts": "Накопительные скидки",
       "advantages__infinite": "Бессрочный доступ",
       "advantages__online": "Онлайн обучение",
@@ -432,8 +432,8 @@ const translations = {
    ua: {
       "header__logo": "На головну",
       "header__logo": "На головну",
-      "hero__title": "Офіційний сайт відеоуроків з астрології.",
-      "hero__subtitle": "Астрологічні відеокурси для всіх рівнів підготовки.",
+      "hero__title": "Анна Карпєєва",
+      "hero__subtitle": "— офіційний сайт відеоуроків Spica Astrology",
       "advantages__discounts": "Накопичувальні знижки",
       "advantages__infinite": "Безстроковий доступ",
       "advantages__online": "Онлайн-навчання",

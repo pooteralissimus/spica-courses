@@ -800,6 +800,7 @@ function switchLanguage() {
    currentLanguage = currentLanguage === 'ru' ? 'ua' : 'ru'
    updateContent()
    localStorage.setItem('language', currentLanguage)
+   updateMetaTags()
 }
 
 function updateContent() {
@@ -870,6 +871,41 @@ function detectLanguage() {
    updateContent()
 }
 
+function updateMetaTags() {
+   const metaTags = {
+      ru: {
+         title: "Видеокурсы Spica Astrology от Анны Карпеевой",
+         description: "Официальный сайт видеокурсов по астрологии Spica Astrology от Анны Карпеевой. Изучайте астрологию онлайн с нашими комплексными курсами.",
+         keywords: "астрология, видеокурсы, Анна Карпеева, Spica Astrology, натальная астрология, таро, ленорман, кармическая астрология, медицинская астрология",
+         ogTitle: "Spica Astrology - Видеокурсы от Анны Карпеевой",
+         ogDescription: "Изучайте астрологию онлайн с комплексными видеокурсами от Анны Карпеевой. Исследуйте натальную астрологию, таро и многое другое."
+      },
+      ua: {
+         title: "Відеокурси Spica Astrology від Анни Карпєєвої",
+         description: "Офіційний сайт відеокурсів з астрології Spica Astrology від Анни Карпєєвої. Вивчайте астрологію онлайн з нашими комплексними курсами.",
+         keywords: "астрологія, відеокурси, Анна Карпєєва, Spica Astrology, натальна астрологія, таро, ленорман, кармічна астрологія, медична астрологія",
+         ogTitle: "Spica Astrology - Відеокурси від Анни Карпєєвої",
+         ogDescription: "Вивчайте астрологію онлайн з комплексними відеокурсами від Анни Карпєєвої. Досліджуйте натальну астрологію, таро та багато іншого."
+      }
+   }
+
+   document.title = metaTags[currentLanguage].title
+   document.querySelector('meta[name="description"]').setAttribute('content', metaTags[currentLanguage].description)
+   document.querySelector('meta[name="keywords"]').setAttribute('content', metaTags[currentLanguage].keywords)
+   document.querySelector('meta[property="og:title"]').setAttribute('content', metaTags[currentLanguage].ogTitle)
+   document.querySelector('meta[property="og:description"]').setAttribute('content', metaTags[currentLanguage].ogDescription)
+
+   // Update hreflang tags
+   document.querySelector('link[hreflang="ru"]').setAttribute('href', `https://your-site.com/?lang=ru`)
+   document.querySelector('link[hreflang="uk"]').setAttribute('href', `https://your-site.com/?lang=uk`)
+
+   // Update canonical link
+   document.querySelector('link[rel="canonical"]').setAttribute('href', `https://your-site.com/?lang=${currentLanguage}`)
+
+   // Update HTML lang attribute
+   document.documentElement.lang = currentLanguage === 'ru' ? 'ru' : 'uk'
+}
+
 document.addEventListener('DOMContentLoaded', function () {
    function updateBodyPadding() {
       var header = document.querySelector('.header')
@@ -898,4 +934,23 @@ document.addEventListener('DOMContentLoaded', function () {
    document.querySelector('[data-language-switcher]').addEventListener('click', switchLanguage)
    filterCatalogItems()
    handleReviews()
+   updateMetaTags()
 })
+
+const structuredData = {
+   "@context": "https://schema.org",
+   "@type": "WebSite",
+   "url": "https://your-site.com/",
+   "name": "Spica Astrology",
+   "author": {
+      "@type": "Person",
+      "name": "Анна Карпеева"
+   },
+   "description": "Официальный сайт видеокурсов по астрологии Spica Astrology от Анны Карпеевой.",
+   "inLanguage": ["ru", "uk"]
+}
+
+const scriptTag = document.createElement('script')
+scriptTag.type = 'application/ld+json'
+scriptTag.text = JSON.stringify(structuredData)
+document.head.appendChild(scriptTag)

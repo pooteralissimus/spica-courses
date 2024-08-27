@@ -93,31 +93,30 @@ $headerHeight432: toRem(153.39);
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    gap: toRem(18);
 
     @media (max-width: $mobile) {
       justify-content: space-between;
     }
   }
 
-  // .hero__logo 
+  // .hero__small
 
-  &__logo {
-    transform: translate(0px, 30%);
+  &__small {
+    transform: translateY(toRem(120));
 
-    img {
-      @media (max-width:$tablet) {
-        max-height: toRem(80);
-      }
-
-      @media (max-width:$mobileSmall) {
-        max-height: toRem(64);
-      }
-
-      @media (max-width: toEm(400)) {
-        max-height: toRem(48);
-      }
+    @media (max-width:$tablet) {
+      transform: translateY(toRem(70));
     }
 
+    @media (max-width:$mobileSmall) {
+      transform: translateY(toRem(40));
+    }
+
+    @media (max-width: toEm(400)) {
+      transform: translateY(toRem(30));
+      font-size: toRem(10);
+    }
 
   }
 
@@ -139,20 +138,32 @@ $headerHeight432: toRem(153.39);
     height: 95%;
     object-fit: contain;
 
-    @media (max-width: toEm(815)) {
-      width: toRem(302);
-      height: toRem(312);
+    // @media (max-width: toEm(815)) {
+    //   width: toRem(285);
+    //   height: toRem(363);
+    // }
+
+    // @media (max-width:$mobileSmall) {
+    //   width: toRem(251);
+    //   height: toRem(259);
+    // }
+
+    // @media (max-width: toEm(400)) {
+    //   width: toRem(212);
+    //   height: toRem(220);
+    // }
+
+    @media (max-width: toEm(600)) {
+      width: toRem(295);
     }
 
     @media (max-width:$mobileSmall) {
-      width: toRem(251);
-      height: toRem(259);
+      width: toRem(260);
     }
 
-    @media (max-width: toEm(400)) {
-      width: toRem(212);
-      height: toRem(220);
-    }
+    // @media (max-width: toEm(360)) {
+    //   width: toRem(180);
+    // }
   }
 
   // .hero__introduction

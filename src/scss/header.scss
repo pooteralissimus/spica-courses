@@ -128,7 +128,7 @@
       }
 
       @media (max-width:toEm(600)) {
-         gap: toRem(8);
+         gap: toRem(6);
       }
    }
 
@@ -136,6 +136,8 @@
 
    &__item {
       box-sizing: content-box;
+
+
    }
 
    // .menu__link
@@ -156,6 +158,12 @@
       @media (max-width:toEm(600)) {
          font-size: toRem(12);
          padding: toRem(8) toRem(5);
+      }
+
+      @media (max-width: toEm(400)) {
+         &:first-child {
+            padding-left: toRem(0);
+         }
       }
 
       &:hover {

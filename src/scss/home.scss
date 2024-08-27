@@ -30,9 +30,15 @@
 }
 
 .hero {
-  background-color: #d6d6cc;
+  background-image: url(../img/hero/hero-background-2.jpg);
+  background-size: contain;
   color: #484848;
   margin-top: toRem(0);
+
+  &_dynamic-height {
+    height: var(--hero-height, 100vh);
+  }
+
   // .hero__container
 
   &__container {
@@ -102,6 +108,8 @@
     }
   }
 }
+
+.page__hero {}
 
 //====================================================================================================
 

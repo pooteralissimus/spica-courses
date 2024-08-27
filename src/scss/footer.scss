@@ -16,7 +16,7 @@
       column-gap: toRem(10);
       row-gap: toRem(20);
 
-      @media (max-width: toEm(800)) {
+      @media (max-width: toEm(815)) {
          flex-direction: column;
       }
    }
@@ -32,6 +32,10 @@
          img {
             transition: all 0.3s ease;
 
+            @media (max-width:$mobileSmall) {
+               max-height: toRem(28);
+            }
+
             @media (any-hover: hover) {
                &:hover {
                   transform: scale(1.2);
@@ -44,7 +48,15 @@
    // .footer__logo
 
    &__logo {
-      img {}
+      img {
+         @media (max-width: toEm(815)) {
+            max-height: toRem(90);
+         }
+
+         @media (max-width:$mobileSmall) {
+            max-height: toRem(75);
+         }
+      }
    }
 
    // .footer__copyright

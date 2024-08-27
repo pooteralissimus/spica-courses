@@ -5,31 +5,6 @@ import { flsModules } from "./modules.js"
 
 let currentLanguage = 'ru'
 
-function updateHeroHeight() {
-   const header = document.querySelector('.header')
-   const hero = document.querySelector('.page__hero')
-
-   if (header && hero) {
-      const headerHeight = header.offsetHeight
-      const heroHeight = `calc(100vh - ${headerHeight}px)`
-
-      hero.style.setProperty('--hero-height', heroHeight)
-      hero.classList.add('page__hero_dynamic-height')
-   }
-}
-
-function observeHeaderHeight() {
-   const header = document.querySelector('.header')
-
-   if (header) {
-      const resizeObserver = new ResizeObserver(() => {
-         updateHeroHeight()
-      })
-
-      resizeObserver.observe(header)
-   }
-}
-
 function filterCatalogItems() {
    // Get all filter buttons
    const filterButtons = document.querySelectorAll('.filter__button')
@@ -915,10 +890,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
    // Update padding on window resize
    window.addEventListener('resize', updateBodyPadding)
-
-   // Call the new functions
-   updateHeroHeight()
-   observeHeaderHeight()
 
    // Other function calls
    detectLanguage()

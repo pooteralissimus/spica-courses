@@ -1,4 +1,12 @@
 //====================================================================================================
+$fontFamily: "Manrope";
+$headerHeight: toRem(132.1);
+$headerHeight991: toRem(129.5);
+$headerHeight600: toRem(113.49);
+$headerHeight480: toRem(110.89);
+$headerHeight432: toRem(153.39);
+
+
 .page {
   // .page__hero
 
@@ -35,9 +43,7 @@
   color: #484848;
   margin-top: toRem(0);
 
-  &_dynamic-height {
-    height: var(--hero-height, 100vh);
-  }
+  // height: calc(100vh - $headerHeight);
 
   // .hero__container
 

@@ -1,0 +1,183 @@
+body::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease 0s;
+  pointer-events: none;
+  z-index: 1001;
+}
+
+.popup-show body::after {
+  opacity: 1;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 30px 10px;
+  transition: visibility 0.8s ease 0s;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.popup_show {
+  z-index: 1002;
+  visibility: visible;
+  overflow: auto;
+  pointer-events: auto;
+}
+
+.popup_show .popup__content {
+  visibility: visible;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.popup_hiding .popup__content {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+.popup__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup__content {
+  visibility: hidden;
+  transform: translateY(-20px);
+  opacity: 0;
+  transition:
+    transform 0.3s ease 0s,
+    visibility 0.3s ease 0s,
+    opacity 0.3s ease 0s;
+  background-color: #ffffff;
+  padding: toRem(20) toRem(20) toRem(30);
+  width: 100%;
+  max-width: toRem(900);
+  border-radius: toRem(20);
+  min-height: toRem(500);
+}
+
+.lock .popup__content {
+  visibility: visible;
+}
+
+.popup__close {
+  position: relative;
+  z-index: 200;
+}
+
+.popup {
+  // .popup__flexbox
+
+  &__flexbox {
+    display: flex;
+    padding-top: toRem(30);
+    align-items: flex-end;
+    gap: toRem(20);
+
+    @media (max-width: toEm(630)) {
+      flex-direction: column;
+    }
+  }
+
+  // .popup__picture
+
+  &__picture {
+    padding-top: toRem(20);
+    text-align: center;
+    margin-top: toRem(-20);
+    margin-bottom: toRem(-10);
+    flex: 0 0 40%;
+    align-self: flex-start;
+
+    img {
+      max-width: 100%;
+
+      @media (max-width: toEm(630)) {
+        max-width: 70%;
+      }
+    }
+  }
+
+  // .popup__text-block
+
+  &__text-block {
+    flex: 1;
+  }
+
+  // .popup__title
+
+  &__title {
+    font-size: toRem(28);
+  }
+
+  // .popup__price
+
+  &__price {
+    border-bottom: 1px solid #cfcece;
+  }
+
+  // .popup__regular-price
+
+  &__regular-price {}
+
+  // .popup__info
+
+  &__info {
+    padding-top: toRem(15);
+    border-bottom: 1px solid #cfcece;
+
+    &_asteroids-list {
+      li::before {
+        content: "Ø";
+        font-size: toRem(17);
+        margin-right: toRem(5);
+      }
+    }
+  }
+
+  // .popup__action
+
+  &__action {
+    padding-top: toRem(5);
+  }
+
+  // .popup__button
+
+  &__button {}
+
+  // .popup__list
+
+  &__list {
+    list-style: disc outside;
+    line-height: 1.4;
+    font-size: toRem(17);
+    margin-right: toRem(5);
+
+    @media (max-width:$mobileSmall) {
+      font-size: toRem(15);
+      line-height: 1.3;
+    }
+
+    li::before {
+      content: "•";
+    }
+  }
+}

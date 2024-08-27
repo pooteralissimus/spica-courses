@@ -1,0 +1,25 @@
+//<BUTTONS (a.btn+tab)>
+// Сніппет (HTML): btn
+
+.button {
+	display: inline-flex;
+	position: relative;
+	padding: toRem(10) toRem(20);
+	background-color: #1f1e1e;
+	color: #fff;
+	border-radius: toRem(5);
+	text-align: center;
+
+	@media (any-hover: hover) {
+		&:hover {}
+	}
+
+	&--fw {
+		width: 100%;
+	}
+
+	@media (max-width:$mobileSmall) {
+		font-size: toRem(15);
+		padding: toRem(8) toRem(16);
+	}
+}

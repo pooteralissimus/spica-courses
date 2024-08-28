@@ -865,9 +865,31 @@ function detectLanguage() {
    if (storedLanguage) {
       currentLanguage = storedLanguage
    } else {
-      const browserLang = navigator.language || navigator.userLanguage
-      currentLanguage = browserLang.startsWith('uk') ? 'ua' : 'ru'
+      // Get the user's preferred languages
+      const userLanguages = navigator.languages || [navigator.language || navigator.userLanguage]
+
+      // Check if any of the user's preferred languages match our supported languages
+      for (let lang of userLanguages) {
+         lang = lang.substr(0, 2).toLowerCase() // Get the first two characters and convert to lowercase
+         if (lang === 'ru') {
+            currentLanguage = 'ru'
+            break
+         } else if (lang === 'uk') {
+            currentLanguage = 'ua'
+            break
+         }
+      }
+
+      // If no match found, default to Russian
+      if (!currentLanguage) {
+         currentLanguage = 'ru'
+      }
    }
+
+   // Save the detected language
+   localStorage.setItem('language', currentLanguage)
+
+   // Update the content based on the detected language
    updateContent()
 }
 
